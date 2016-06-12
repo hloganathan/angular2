@@ -1,0 +1,7 @@
+.app-title {{ title }}
+.container
+  p.title Welcome to the Angular2 Data Entry application. This took forever. hoping to get browser sync going - one, uh oh
+  de-login(*ngIf='user.isValid === false')
+  .container(*ngIf='user.isValid === true')
+    .p Welcome to the app, {{ user?.firstName }}!!!  You are logged in as {{ user?.username }}
+    button((click)='logoutUser()') Logout

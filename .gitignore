@@ -1,0 +1,7 @@
+#primary ignores
+node_modules/
+typings/
+.vscode/
+.idea/
+dist/
+npm-debug.log
