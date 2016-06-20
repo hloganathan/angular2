@@ -10,10 +10,16 @@ import { Authentication } from '../services/authentication';
 
 export class LoginComponent implements OnInit {
     username: string;
+    password: string;
+    private _fullstring: string;
     status: string;
     
     constructor(private _authSrvc: Authentication){
         
+    }
+
+    get fullstring(): string{
+        return `${this.username} - ${this.password}`
     }
     tryLogin(){
         this._authSrvc.tryLogin(this.username);

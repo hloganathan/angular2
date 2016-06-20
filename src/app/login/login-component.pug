@@ -1,6 +1,7 @@
-.container.login
-    p login here
-    label Welcome!!!!  Enter your Username
-    input([(ngModel)]='username') 
-    
-    button((click)='tryLogin()') Log in
+.#navbar.navbar.navbar-collapse.collapse
+    form.navbar-form.navbar-right
+        .form-group
+            input.form-control(type='text', placeholder='email address')
+        .form-group
+            input.form-control(type='password', placeholder='password')
+        button.btn.btn-success(type='submit') Sign In

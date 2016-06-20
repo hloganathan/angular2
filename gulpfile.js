@@ -8,7 +8,8 @@ var gulp = require('gulp'),
     nodemon = require('gulp-nodemon'),
     plumber = require('gulp-plumber'),
     ts = require('gulp-typescript');
-        
+var gulpsync = require('gulp-sync')(gulp);    
+
 var reload = browserSync.reload;
 
 
@@ -65,13 +66,16 @@ p.watch(['./src/app/**/*.ts'], [':app:typescript']);
 /***********
 BUILD TASKS
 ************/
-gulp.task('build', ['clean', ':server:build', ':app:build']);
+gulp.task('build', gulpsync.sync(['clean', ':server:build', ':app:build', ':app:bootstrap','jquery']));
 
 gulp.task('clean', function () {
     del.sync('./dist');
 });
 
-
+gulp.task('jquery', function(){
+    gulp.src('./node_modules/jquery/dist/*.js')
+        .pipe(gulp.dest('./dist/public/js/'));
+})
 
 /***********
 APP TASKS
@@ -109,6 +113,23 @@ gulp.task(':app:scss', function () {
         .pipe(gulp.dest('./dist/public'))
         .pipe(reload({stream: true}));
 });
+
+gulp.task(':app:bootstrap', [':app:boostrap-css', ':app:boostrap-js', ':app:boostrap-fonts']);
+
+gulp.task(':app:boostrap-css', function(){
+    return gulp.src('./node_modules/bootstrap/dist/**/bootstrap*.css')
+        .pipe(gulp.dest('./dist/public/')); 
+})
+
+gulp.task(':app:boostrap-js', function(){
+    return gulp.src('./node_modules/bootstrap/dist/**/*.js')
+        .pipe(gulp.dest('./dist/public/')); 
+})
+
+gulp.task(':app:boostrap-fonts', function(){
+    return gulp.src('./node_modules/bootstrap/dist/**/*.*')
+        .pipe(gulp.dest('./dist/public/')); 
+})
 
 
 
