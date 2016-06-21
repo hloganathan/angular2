@@ -49,6 +49,16 @@
     "**/typings/**"
   ],
   "dependencies": {
-    "mute" : ["browser-sync-ui", "browser-sync", "rxjs", "systemjs", "jquery"]
+    "mute" : ["browser-sync-ui", "browser-sync", "rxjs", "systemjs", "jquery"],
+    "unused-ignores": [ 
+      "gulp-*", 
+      "rethinkdb", 
+      "reflect-metadata", 
+      "pug", 
+      "ng2-bootstrap", 
+      "core-js", 
+      "bootstrap", 
+      "angular2-in-memory-web-api",
+      "@angular*"
   }
 }
