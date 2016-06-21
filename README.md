@@ -9,7 +9,7 @@ This application is an opportunity to learn more about Angular2.  This time the 
 - Browser sync for a better dev experience
 - Mongodb or RethinkDb as the database
 
-For an overview of the business requirements for the application: [Requirements](https://github.com/dfmartin/angular2/docs/requirements.md)
+For an overview of the business requirements for the application: [Requirements](https://github.com/dfmartin/angular2/blob/master/docs/requirements.md)
 
 
 ## Installation
