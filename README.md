@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/dfmartin/angular2.svg?branch=master)](https://travis-ci.org/dfmartin/angular2) 
 # Angular 2 data entry
 
 This application is an opportunity to learn more about Angular2.  This time the goal is to create an application that implements the following:
@@ -34,15 +35,3 @@ Currently everything (almost) is in ```./src```.  From there the application is 
     * tsconfig.json - used by TypeScript
     * tsconfig.app.json - special TypeScript config for the angular 2. application. Note - it excludes the ```./src/server``` directory.
     * tsconfig.server.json - special TypeScript config for the express server.  Note - it excludes the ```./src/app``` directory.
-
-## Quick walkthrough
-*angular application*
-We are using angular components to compose the application
-  
-
-## todo
-1. gulp file setup
-    1. compilation
-    2. browser sync
-2. Express setup
-    1. server.js + src/server/app.ts
