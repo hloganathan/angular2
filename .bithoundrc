@@ -49,6 +49,6 @@
     "**/typings/**"
   ],
   "dependencies": {
-    "mute" : ["browser-sync-ui", "browser-sync"]
+    "mute" : ["browser-sync-ui", "browser-sync", "rxjs", "systemjs", "jquery"]
   }
 }
