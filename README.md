@@ -9,6 +9,17 @@ This application is an opportunity to learn more about Angular2.  This time the 
 - Browser sync for a better dev experience
 - Mongodb or RethinkDb as the database
 
+## Premise
+The premise of the application developed here is that of a health journal.  It should provide the following:
+* Login
+* Configure healthcare providers
+* Configure Insurance
+* Create physician visit 
+   * Date
+   * Notes
+   * Follow up
+
+
 ## Installation
 ```
 $ git clone https://gitlab.com/nashvegastech/angular2-dataentry.git
