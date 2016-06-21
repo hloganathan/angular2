@@ -47,6 +47,6 @@
     "**/extjs/src/**",
     "**/extjs/welcome/**",
     "bower_components/**",
-    "**/typings/**
+    "**/typings/**"
   ]
 }
