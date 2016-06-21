@@ -135,7 +135,7 @@ SERVER TASKS
 gulp.task(':server:build',[':server:typescript', ':server:copyfiles', ':server:pug', ':server:scss']);
 
 gulp.task(':server:typescript', function(){
-    var tsProject = ts.createProject('./tsconfig.server.json')
+    var tsProject = ts.createProject('./tsconfig.server.json');
     return tsProject.src()
         .pipe(ts(tsProject))
         .js.pipe(gulp.dest("dist/public/js"))
