@@ -3,7 +3,7 @@ import { User } from '../models/user';
 import { Authentication } from '../services/authentication';
 
 @Component({
-    selector: 'de-login',
+    selector: 'hj-login',
     templateUrl: './login/login-component.html',
     styleUrls: ['./login/login-component.css']
 })
@@ -18,11 +18,8 @@ export class LoginComponent implements OnInit {
         
     }
 
-    get fullstring(): string{
-        return `${this.username} - ${this.password}`
-    }
     tryLogin(){
-        this._authSrvc.tryLogin(this.username);
+        this._authSrvc.tryLogin(this.username, this.password);
     }
     
     ngOnInit(): any{

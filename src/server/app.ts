@@ -10,16 +10,16 @@ export class Server {
     private _root: string;
     private _users;
 
-    constructor(root: string){
+    constructor(root: string) {
         const d = new Data();
         this._users = d.users;
         this._root = root;
         this.app = express();
-        this.config();   
-        this.SetupRoutes(); 
+        this.config();
+        this.SetupRoutes();
         this.SetupApiRoutes();
     }
-    
+
     config() {
         console.log('server path = ' + this._root);
         this.app.set('views', path.join(this._root, 'views'));
@@ -31,42 +31,49 @@ export class Server {
         this.app.use(bodyParser.urlencoded({ extended: true }));
     }
 
-    
-    private SetupRoutes(){
+
+    private SetupRoutes() {
         let router: express.Router = express.Router();
-        
-        let index  = (req: Express.Request, res: express.Response, next: express.NextFunction) => res.render('index');
-        
+
+        let index = (req: Express.Request, res: express.Response, next: express.NextFunction) => res.render('index');
+
         router.get('/', index.bind(index));
         this.app.use(router);
-    }   
+    }
 
-    private SetupApiRoutes(){
-        let router : express.Router = express.Router();
-        router.get('/users', (req, res)=>{
-            //res.json({"message": "Welcome to data entry"});
-            res.json(this._users);
-        });
+    private SetupApiRoutes() {
+        let router: express.Router = express.Router();
 
-        router.route('/users/:username')
-            .get((req, res)=> {
-                const name: string = req.params.username;
-                const user = _.find(this._users, function(o: {id: number, username: string}){ return o.username == name});
-                if(user === undefined){
+        router.route('/users')
+            .get((req, res) => {
+                if (req.query.username === undefined) {
+                    res.json(this._users);
+                    return;
+                }
+                const username: string = req.query.username;
+                const password: string = req.query.password;
+                //const user = _.find(this._users, (o: { id: number, username: string, password: string }) => { this.isValidUser(o, name, //password); });
+                const user = _.find(this._users, function (o:any) { return o.username == username && o.password==password });
+
+                console.log(`found user: ${user}`);
+                if (user === undefined) {
                     res.statusCode = 404;
                     res.send(undefined);
                 }
-                else{
-                res.json(user);
+                else {
+                    res.json(user);
 
                 }
             });
-        //router.route('/users/:id')
-        //    .get((req, res)=> {
-        //        const id: number = req.params.id;
-        //        const user = _.find(this._users, function(o: {id: number, username: string}){ return o.id == id});
-        //        res.json(user);
-        //    });
+
         this.app.use('/api', router);
+    }
+
+    private isValidUser(u: { id: number, username: string, password: string }, username: string, password: string): boolean {
+        var result = u.username == username && u.password == password;
+        if (result)
+            console.log(`login attempt: ${username} + ${password}.  Successful: ${result}`);
+
+        return result;
     }
 }

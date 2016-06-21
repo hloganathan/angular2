@@ -4,4 +4,7 @@ export class User {
     lastName: string = '';
     isValid: boolean = false;
     role: string = 'none';
+    get fullname(): string {
+        return `${this.firstName} ${this.lastName}`;
+    }
 }

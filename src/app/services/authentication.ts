@@ -22,10 +22,10 @@ export class Authentication {
 
         if (data) {
             console.log(`result = ${data}`);
-            alert(`result = ${data.name}`);                
+            //alert(`result = ${data.name}`);                
             user.username = data.username;
-            user.firstName = data.name;
-            user.lastName = 'washington';
+            user.firstName = data.firstname;
+            user.lastName = data.lastname;
             user.isValid = true;
         }
         else{
@@ -34,13 +34,13 @@ export class Authentication {
         
         this._changeUser(user);
     }
-    tryLogin(username: string) {
+    tryLogin(username: string, password:string) {
         const url = 'http://localhost:3000/api/';
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         headers.append('Accept', 'application/json');
 
-        this._http.get(`api/users/${username}`, { headers: headers })
+        this._http.get(`api/users?username=${username}&password=${password}`, { headers: headers })
             .map(res => { console.log(res); if(res.status === 200) return res.json(); return undefined})
             .subscribe((d:any) => this.completeLogin(d),
             (err) => { console.error(err); this.completeLogin(undefined); },
