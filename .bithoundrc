@@ -47,5 +47,8 @@
     "**/extjs/welcome/**",
     "bower_components/**",
     "**/typings/**"
-  ]
+  ],
+  "dependencies": {
+    "mute" : ["browser-sync-ui", "browser-sync"]
+  }
 }
