@@ -9,6 +9,13 @@
     "comment-format": [false],
     "semicolon": [false],
     "align": [false], 
-    "eofline": [false]
+    "eofline": [false],
+    "trailing-comma": [false],
+    "no-empty": [false],
+    "max-line-length": [false],
+    "triple-equals": [false],
+    "linebreak-style": [false],
+    "no-switch-case-fall-through": [false],
+    
   }
 }
