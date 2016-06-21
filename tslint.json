@@ -15,7 +15,6 @@
     "max-line-length": [false],
     "triple-equals": [false],
     "linebreak-style": [false],
-    "no-switch-case-fall-through": [false],
-    
+    "no-switch-case-fall-through": [false]
   }
 }
