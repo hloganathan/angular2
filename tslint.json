@@ -1,5 +1,14 @@
 {
   rules: {
-    quotemark: [true, "single", "avoid-escape"]
+    "quotemark": [true, "single", "avoid-escape"],
+    "no-unused-variable": [false],
+    "no-trailing-whitespace": [false],
+    "member-ordering": [false],
+    "no-constructor-vars": [false],
+    "whitespace": [false],
+    "comment-format": [false],
+    "semicolon": [false],
+    "align": [false], 
+    "eofline": [false]
   }
 }
