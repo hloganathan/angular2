@@ -1,4 +1,4 @@
-// tslint:disable:quotemark 
+/* tslint:disable:quotemark */
 
 export class Data {
     public users =
