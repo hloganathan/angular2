@@ -9,6 +9,8 @@ before_script:
   - 
 script: gulp build
 notifications:
-  slack: nashvegastech:8YmJJoumbMc0qwu4ESM5qFjX#builds
+  slack:
+    rooms:
+        - nashvegastech:8YmJJoumbMc0qwu4ESM5qFjX#builds
     on_success: change
     on_failure: always
