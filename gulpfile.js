@@ -28,8 +28,8 @@ gulp.task('browsersync', ['nodemon'], function(){
     browserSync.init(null, {
         proxy: 'http://localhost:3000',
         port: '5000'
-    })
-})
+    });
+});
 
 gulp.task('nodemon', ['build'], function (cb) {
     var called = false;
@@ -53,13 +53,9 @@ gulp.task('nodemon', ['build'], function (cb) {
 gulp.task('watch', function () {
     gulp.watch('src/**/*.scss', [':app:styles', ':server:styles']);
     gulp.watch('src/**/*.pug', [':app:pug', ':server:pug']);
-    
-p.watch(['./src/app/**/*.ts'], [':app:typescript']);
-
-    //gulp.watch(['./src/server/**/*.ts'], [':server:typescript']);
-
+    gulp.watch(['./src/app/**/*.ts'], [':app:typescript']);
     gulp.watch(['./server.js', './systemjs.config.js'], [':app:copyfiles', ':server:copyfiles'], reload);
-})
+});
 
 
 
@@ -75,14 +71,14 @@ gulp.task('clean', function () {
 gulp.task('jquery', function(){
     gulp.src('./node_modules/jquery/dist/*.js')
         .pipe(gulp.dest('./dist/public/js/'));
-})
+});
 
 /***********
 APP TASKS
 ************/
 gulp.task(':app:build', [':app:typescript', ':app:copyfiles', ':app:pug', ':app:scss']);
 gulp.task(':app:typescript', [':app:copyfiles'], function(){
-    var tsProject = ts.createProject('./tsconfig.app.json')
+    var tsProject = ts.createProject('./tsconfig.app.json');
     return tsProject.src()
         .pipe(ts(tsProject))
         .js.pipe(gulp.dest("dist/public"))
@@ -119,17 +115,17 @@ gulp.task(':app:bootstrap', [':app:boostrap-css', ':app:boostrap-js', ':app:boos
 gulp.task(':app:boostrap-css', function(){
     return gulp.src('./node_modules/bootstrap/dist/**/bootstrap*.css')
         .pipe(gulp.dest('./dist/public/')); 
-})
+});
 
 gulp.task(':app:boostrap-js', function(){
     return gulp.src('./node_modules/bootstrap/dist/**/*.js')
         .pipe(gulp.dest('./dist/public/')); 
-})
+});
 
 gulp.task(':app:boostrap-fonts', function(){
     return gulp.src('./node_modules/bootstrap/dist/**/*.*')
         .pipe(gulp.dest('./dist/public/')); 
-})
+});
 
 
 
