@@ -1,10 +1,10 @@
 'use strict';
 
-var Server = require('./public/js/app');
-var debug = require('debug')('express:server');
-var http = require('http');
+var Server = require('./public/js/app'),
+    debug = require('debug')('express:server'),
+    http = require('http');
 
-var app = new Server.Server(__dirname, 'dist').app 
+var app = new Server.Server(__dirname, 'dist').app ;
 
 var port = normalizePort(process.env.PORT || 3000);
 app.set('port', port);
@@ -21,14 +21,13 @@ httpServer.listen(port);
 function onError(err){
     if(err.syscall !== 'listen') throw err;
     
-    var bind = typeof port ==='string'
-        ? 'Pipe ' + port
-        : 'Port ' + port;
+    var bind = typeof port ==='string' ? 'Pipe ' + port : 'Port ' + port;
         
     switch(err.code){
         case 'EACCES':
             console.error(bind + ' requires elevated privileges');
             process.exit(1);
+            break;
         case 'EADDRINUSE':
             console.error(bind + ' is already in use');
             process.exit(1);
@@ -40,9 +39,7 @@ function onError(err){
 
 function onListening(){
     var addr = httpServer.address();
-    var bind = typeof addr === 'string'
-        ? 'pipe ' + addr
-        : 'port ' + addr;
+    var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr;
         
     debug('Listening on ' + bind);
 }
