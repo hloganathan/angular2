@@ -60,7 +60,7 @@
       "bootstrap", 
       "angular2-in-memory-web-api",
       "@angular/*",
-      "zone"
+      "zone.js"
     ]
   }
 }
