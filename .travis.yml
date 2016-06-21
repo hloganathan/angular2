@@ -4,6 +4,7 @@ node_js:
   - "5"
   - "4"
 before_script:
-  - npm install -g gulp
+  - npm install -g gulp typings
   - npm install
+  - 
 script: gulp build
