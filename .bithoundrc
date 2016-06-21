@@ -1,6 +1,6 @@
 {
   "critics": {
-    "lint": { "engine": "tslint" Is this working? }
+    "lint": { "engine": "tslint" }
   },
   "ignore": [
     "**/deps/**",
