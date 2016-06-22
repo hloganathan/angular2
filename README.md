@@ -8,6 +8,8 @@
 
 > Latest: Angular 2.0.0-rc.3  (6/21/2016)
 
+>  Check out the docs folder for an in-depth look at the structure of the app and what each piece does.
+
 # Angular 2 - Health Journal
 
 This application is an opportunity to learn more about Angular2.  This time the goal is to create an application that implements the following:
