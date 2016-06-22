@@ -6,8 +6,8 @@ import { UserDropdownComponent } from './components/user-dropdown.component';
 
 @Component({
     selector: 'my-app',
-    templateUrl: 'app-component.html',
-    styleUrls: ['app-component.css'],
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.css'],
     directives: [LoginComponent, UserDropdownComponent]
 })
 

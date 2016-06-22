@@ -4,8 +4,29 @@ import { User } from '../models/user';
 
 @Component({
     selector:'hj-user-dropdown',
-    templateUrl: './components/user-dropdown.component.html',
-    styleUrls: ['./components/user-dropdown.component.css']
+    template:`
+    <div class="navbar navbar-collapse collapse">
+        <div class="dropdown navbar-form navbar-right">
+            <button id="dropdownMenu1" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="glyphicon glyphicon-user"></span>
+                <span class="username">{{ user?.fullname }}</span>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="#">Account</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#" (click)="logoutUser()">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    `,
+    styles:[`
+        .username {
+            margin: 0 6px;
+        }
+    `]
+    //templateUrl: './components/user-dropdown.component.html',
+    //styleUrls: ['./components/user-dropdown.component.css']
 })
 export class UserDropdownComponent{
     user: User;
