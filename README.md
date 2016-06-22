@@ -12,7 +12,9 @@
 
 [![License](http://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/iron/iron/master/LICENSE)
 
-# Angular 2 data entry
+> Latest: Angular 2.0.0-rc.3  (6/21/2016)
+
+# Angular 2 - Health Journal
 
 This application is an opportunity to learn more about Angular2.  This time the goal is to create an application that implements the following:
 - Angular 2
