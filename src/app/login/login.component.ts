@@ -4,8 +4,8 @@ import { Authentication } from '../services/authentication';
 
 @Component({
     selector: 'hj-login',
-    templateUrl: './login/login-component.html',
-    styleUrls: ['./login/login-component.css']
+    templateUrl: './login/login.component.html',
+    styleUrls: ['./login/login.component.css']
 })
 
 export class LoginComponent implements OnInit {
