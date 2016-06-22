@@ -1,15 +1,9 @@
-#### Master 
-[![Build Status](https://travis-ci.org/dfmartin/angular2.svg?branch=master)](https://travis-ci.org/dfmartin/angular2) 
+[![Build Status](https://travis-ci.org/dfmartin/angular2.svg)](https://travis-ci.org/dfmartin/angular2) 
 [![bitHound Overall Score](https://www.bithound.io/github/dfmartin/angular2/badges/score.svg)](https://www.bithound.io/github/dfmartin/angular2)
-[![bitHound Dependencies](https://www.bithound.io/github/dfmartin/angular2/badges/dependencies.svg)](https://www.bithound.io/github/dfmartin/angular2/master/dependencies/npm)
-[![bitHound Dev Dependencies](https://www.bithound.io/github/dfmartin/angular2/badges/devDependencies.svg)](https://www.bithound.io/github/dfmartin/angular2/master/dependencies/npm)
+[![bitHound Dependencies](https://www.bithound.io/github/dfmartin/angular2/badges/dependencies.svg)](https://www.bithound.io/github/dfmartin/angular2/dependencies/npm)
+[![bitHound Dev Dependencies](https://www.bithound.io/github/dfmartin/angular2/badges/devDependencies.svg)](https://www.bithound.io/github/dfmartin/angular2/dependencies/npm)
 
-#### Develop
-[![Build Status](https://travis-ci.org/dfmartin/angular2.svg?branch=develop)](https://travis-ci.org/dfmartin/angular2) 
-[![bitHound Overall Score](https://www.bithound.io/github/dfmartin/angular2/badges/score.svg)](https://www.bithound.io/github/dfmartin/angular2)
-[![bitHound Dependencies](https://www.bithound.io/github/dfmartin/angular2/badges/dependencies.svg)](https://www.bithound.io/github/dfmartin/angular2/develop/dependencies/npm)
-[![bitHound Dev Dependencies](https://www.bithound.io/github/dfmartin/angular2/badges/devDependencies.svg)](https://www.bithound.io/github/dfmartin/develop/master/dependencies/npm)
-
+[![Join the chat at https://gitter.im/dfmartin/angular2](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dfmartin/angular2?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![License](http://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/iron/iron/master/LICENSE)
 
 > Latest: Angular 2.0.0-rc.3  (6/21/2016)
