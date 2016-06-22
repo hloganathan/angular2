@@ -44,3 +44,6 @@ Currently everything (almost) is in ```./src```.  From there the application is 
     * tsconfig.json - used by TypeScript
     * tsconfig.app.json - special TypeScript config for the angular 2. application. Note - it excludes the ```./src/server``` directory.
     * tsconfig.server.json - special TypeScript config for the express server.  Note - it excludes the ```./src/app``` directory.
+
+
+Please checkout the issues and look for the ones labeld "help wanted"
