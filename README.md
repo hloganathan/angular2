@@ -26,7 +26,7 @@ For an overview of the business requirements for the application: [Requirements]
 
 ## Installation
 ```
-$ git clone https://gitlab.com/nashvegastech/angular2-dataentry.git
+$ git clone https://github.com/dfmartin/angular2.git
 $ cd angular2-dataentry
 $ npm install -g typescript typings gulp node-sass
 $ npm install
