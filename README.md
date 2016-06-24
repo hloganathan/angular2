@@ -49,3 +49,5 @@ Currently everything (almost) is in ```./src```.  From there the application is 
 
 
 Please checkout the issues and look for the ones labeld "help wanted"
+
+> special thanks for Jim Vaughan for keeping straight.   
