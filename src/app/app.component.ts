@@ -14,10 +14,12 @@ import { UserDropdownComponent } from './components/user-dropdown.component';
 export class AppComponent implements OnInit{
     title: string = 'Angular 2 Data Entry - App';
     user: User;
+    private _authSrvc: Authentication;
     
-    constructor(private _authSrvc: Authentication){
-        this.user = _authSrvc.currentUser;
-        _authSrvc.userChanged$.subscribe(u => this.user = u);
+    constructor(authSrvc: Authentication){
+        this._authSrvc = authSrvc;
+        this.user = this._authSrvc.currentUser;
+        this._authSrvc.userChanged$.subscribe(u => this.user = u);
     }
     
     ngOnInit(){

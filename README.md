@@ -51,3 +51,22 @@ Currently everything (almost) is in ```./src```.  From there the application is 
 Please checkout the issues and look for the ones labeld "help wanted"
 
 > special thanks for Jim Vaughan for keeping straight.   
+
+
+## Roadmap to the Scripts and Other Files
+Listed in no particular order...
+
+* .gitignore
+    + This file includes a list of files and folders which git should not track.
+* package.json
+    + This file describes various aspectes of the "solution" contained withing this folder.
+    + The "scripts" section declares the various scripts that can be run within the context of this "solution".
+        > Each script specification consists of a script command, followed by a script body.
+        > 'npm run <script_command>' will run whatever script body has been specified
+        > Some scripts can be run with simply 'npm <script_command>', such as 'npm start'
+        > Scripts which are defined as 'gulp <task>' have their '<task>' defined in the file 'gulpfile.js'
+* gulpfile.js
+    + Initializes and sets up the gulp environment.
+    + Contains definitions of the various tasks to be performed by gulp.
+* To Be Continued...
+
