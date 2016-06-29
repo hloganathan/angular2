@@ -10,10 +10,10 @@ import { Authentication } from '../../services';
 })
 
 export class LoginComponent implements OnInit {
-    username: string;
-    password: string;
+    public username: string;
+    public password: string;
+    public status: string;
     private _fullstring: string;
-    status: string;
     
     constructor(private _authSrvc: Authentication){
         

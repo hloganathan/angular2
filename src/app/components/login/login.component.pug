@@ -1,7 +1,6 @@
-.navbar.navbar-collapse.collapse
-    form.navbar-form.navbar-right
-        .form-group
-            input.form-control(type='text', placeholder='email address', [(ngModel)]='username')
-        .form-group
-            input.form-control(type='password', placeholder='password', [(ngModel)]='password')
-        button.btn.btn-success(type='submit', (click)='tryLogin()') Sign In
+form.navbar-form.navbar-right
+    .form-group
+        input.form-control(type='text', placeholder='email address', [(ngModel)]='username')
+    .form-group
+        input.form-control(type='password', placeholder='password', [(ngModel)]='password')
+    button.btn.btn-success(type='submit', (click)='tryLogin()') Sign In

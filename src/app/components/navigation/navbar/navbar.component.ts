@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { Authentication } from '../../../services/authentication';
 import { User } from '../../../models';
 import { UserDropdownComponent, LoginComponent } from '../../../components';
+import { MainMenuComponent } from '../main-menu';
 
 @Component({
     selector: 'hj-navbar',
     moduleId: module.id,
     templateUrl: 'navbar.component.html',
     styleUrls: ['navbar.component.css'],
-    directives: [LoginComponent, UserDropdownComponent]
+    directives: [ MainMenuComponent, LoginComponent, UserDropdownComponent ]
 
 })
 export class NavbarComponent {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from '../components';
+import { NavbarComponent } from '../components/navigation/navbar';
 
 @Component({
     selector: 'hj-root',

@@ -18,6 +18,7 @@ const barrels: string[] = [
   'components/user-dropdown',
   'components/navigation',
   'components/navigation/navbar',
+  'components/navigation/main-menu',
   'components',
   'models',
   'services',

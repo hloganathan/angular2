@@ -11,5 +11,3 @@ hj-navbar
 
     br
     p The take a look at the top right.  You should see the fullname of the user in a dropdown.  Drop it down and selelct Logout.
-    p this is making a call to a backend service which is using a .json file for the data.
-    p This also uses 3 components.  app.component, login.component (for the actual login section) and user-dropdown.component.  All three inject the AuthService and the app component subscribes to the userChanged obvservable to hide/show login/user dropdown.  Login calls into the auth service to perform the login.  User dropdown uses the auth service to perform a logout.  Both of these can result in the userChanged obvservable firing causing the app component to update.
