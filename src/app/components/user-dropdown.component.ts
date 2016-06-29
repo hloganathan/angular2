@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Authentication } from '../services/authentication';
-import { User } from '../models/user';
+import { Authentication } from '../services';
+import { User } from '../models';
 
 @Component({
     selector:'hj-user-dropdown',

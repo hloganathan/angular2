@@ -14,16 +14,16 @@ const barrels: string[] = [
   // Thirdparty barrels.
 
   // App specific barrels.
-  'app',
-  'app/components/login',
-  'app/components',
-  'app/models',
-  './root'
+  'components/login',
+  'components',
+  'models',
+  'services',
+  'root'
 ];
 
 const systemPackages: any = {};
 barrels.forEach((b) => {
-    systemPackages[b] = { main: 'index', defaultExtension: 'js'};
+    systemPackages[b] = { main: 'index.js', defaultExtension: 'js'};
 });
 
 systemPackages['rxjs'] = { main: '/bundles/rx.js', defaultExtension: 'js' };
@@ -37,12 +37,11 @@ declare var System: any;
 System.config({
     baseUrl: '/',
     map: {
-        'app': '/',
         '@angular':                   'node_modules/@angular',
         '@angular/router':            'node_modules/@angular/router',
         'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
         'rxjs':                       'node_modules/rxjs',
-        'main': 'main.js'
+        'main': 'index.js'
     },
     packages: systemPackages
 });

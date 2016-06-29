@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginComponent } from '../login/login.component';
 import { Authentication } from '../services/authentication';
-import { User } from '../models/user';
-import { UserDropdownComponent } from '../components/user-dropdown.component';
+import { User } from '../models';
+import { UserDropdownComponent, LoginComponent } from '../components';
 
 @Component({
     selector: 'hj-root',
