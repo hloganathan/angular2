@@ -15,6 +15,7 @@ const barrels: string[] = [
 
   // App specific barrels.
   'components/login',
+  'components/user-dropdown',
   'components',
   'models',
   'services',

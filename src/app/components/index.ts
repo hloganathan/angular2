@@ -1,2 +1,2 @@
-export * from './login/index';
-export * from './user-dropdown.component';
+export * from './login';
+export * from './user-dropdown';
