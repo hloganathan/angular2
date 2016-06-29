@@ -12,6 +12,8 @@ var gulpsync = require('gulp-sync')(gulp);
 
 var reload = browserSync.reload;
 
+var appFolder = './dist/app';
+var serverFolder = './dist/server';
 
 gulp.task('run', ['browsersync'], function () {
     gulp.watch('src/**/*.scss', [':app:scss', ':server:scss']);
@@ -20,8 +22,6 @@ gulp.task('run', ['browsersync'], function () {
     gulp.watch(['./src/app/**/*.ts'], [':app:typescript']);
 
     gulp.watch(['./src/server/**/*.ts'], [':server:typescript']);
-
-    gulp.watch(['./server.js', './systemjs.config.js'], [':app:copyfiles', ':server:copyfiles'], reload);
 });
 
 gulp.task('browsersync', ['nodemon'], function(){
@@ -35,7 +35,7 @@ gulp.task('nodemon', ['build'], function (cb) {
     var called = false;
 
     return nodemon({
-        script: './dist/server.js',
+        script: './dist/server/app.js',
         ignore: [
             './src/server/*.*',
             './src/app/*.*',
@@ -54,7 +54,6 @@ gulp.task('watch', function () {
     gulp.watch('src/**/*.scss', [':app:styles', ':server:styles']);
     gulp.watch('src/**/*.pug', [':app:pug', ':server:pug']);
     gulp.watch(['./src/app/**/*.ts'], [':app:typescript']);
-    gulp.watch(['./server.js', './systemjs.config.js'], [':app:copyfiles', ':server:copyfiles'], reload);
 });
 
 
@@ -70,7 +69,7 @@ gulp.task('clean', function () {
 
 gulp.task('jquery', function(){
     gulp.src('./node_modules/jquery/dist/*.js')
-        .pipe(gulp.dest('./dist/public/js/'));
+        .pipe(gulp.dest(appFolder + '/js'));
 });
 
 /***********
@@ -81,22 +80,21 @@ gulp.task(':app:typescript', [':app:copyfiles'], function(){
     var tsProject = ts.createProject('./tsconfig.app.json');
     return tsProject.src()
         .pipe(ts(tsProject))
-        .js.pipe(gulp.dest("dist/public"))
+        .js.pipe(gulp.dest(appFolder))
         .pipe(reload({ stream: true }));
 });
 
 
 gulp.task(':app:copyfiles', function(){
-     return gulp.src(['./systemjs.config.js'])
-        .pipe(plumber())
-        .pipe(gulp.dest('./dist/public/js'));
+    return gulp.src('./node_modules/@angular/**/*.*')
+        .pipe(gulp.dest('./dist/app/vendor/@angular'));
 });
 
 gulp.task(':app:pug', function () {
      return gulp.src('./src/app/**/*.pug')
         .pipe(plumber())
         .pipe(pug({ pretty: true }))
-        .pipe(gulp.dest('./dist/public'))
+        .pipe(gulp.dest(appFolder))
         .pipe(reload({stream: true}));
 });
 
@@ -106,7 +104,7 @@ gulp.task(':app:scss', function () {
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'expanded' }))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./dist/public'))
+        .pipe(gulp.dest(appFolder))
         .pipe(reload({stream: true}));
 });
 
@@ -114,20 +112,18 @@ gulp.task(':app:bootstrap', [':app:boostrap-css', ':app:boostrap-js', ':app:boos
 
 gulp.task(':app:boostrap-css', function(){
     return gulp.src('./node_modules/bootstrap/dist/**/bootstrap*.css')
-        .pipe(gulp.dest('./dist/public/')); 
+        .pipe(gulp.dest(appFolder)); 
 });
 
 gulp.task(':app:boostrap-js', function(){
     return gulp.src('./node_modules/bootstrap/dist/**/*.js')
-        .pipe(gulp.dest('./dist/public/')); 
+        .pipe(gulp.dest(appFolder)); 
 });
 
 gulp.task(':app:boostrap-fonts', function(){
     return gulp.src('./node_modules/bootstrap/dist/**/*.*')
-        .pipe(gulp.dest('./dist/public/')); 
+        .pipe(gulp.dest(appFolder)); 
 });
-
-
 
 /***********
 SERVER TASKS
@@ -138,14 +134,14 @@ gulp.task(':server:typescript', function(){
     var tsProject = ts.createProject('./tsconfig.server.json');
     return tsProject.src()
         .pipe(ts(tsProject))
-        .js.pipe(gulp.dest("dist/public/js"))
+        .js.pipe(gulp.dest(serverFolder))
         .pipe(reload({ stream: true }));
 });
 
 gulp.task(':server:copyfiles', function () {
-    return gulp.src(['server.js'])
+    return gulp.src(['./src/server/server.js'])
         .pipe(plumber())
-        .pipe(gulp.dest('./dist'));  
+        .pipe(gulp.dest(serverFolder));  
 });
 
 gulp.task(':server:scss', function () {
@@ -154,13 +150,13 @@ gulp.task(':server:scss', function () {
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'expanded' }))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./dist/public/css'))
+        .pipe(gulp.dest(serverFolder + '/css'))
         .pipe(reload({stream: true}));
 });
 
 gulp.task(':server:pug', function () {
     return gulp.src('src/server/**/*.pug')
         .pipe(plumber())
-        .pipe(gulp.dest('./dist/'))
+        .pipe(gulp.dest(serverFolder))
         .pipe(reload({stream: true}));
 });
