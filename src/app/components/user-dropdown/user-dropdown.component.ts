@@ -4,8 +4,8 @@ import { User } from '../../models';
 
 @Component({
     selector:'hj-user-dropdown',
-    moduleId: module.id;
-    templateUrl: 'user-dropdown.component.html'
+    moduleId: module.id,
+    templateUrl: 'user-dropdown.component.html',
     styleUrls: ['user-dropdown.component.css']
 })
 export class UserDropdownComponent{

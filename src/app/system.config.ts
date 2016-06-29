@@ -16,6 +16,8 @@ const barrels: string[] = [
   // App specific barrels.
   'components/login',
   'components/user-dropdown',
+  'components/navigation',
+  'components/navigation/navbar',
   'components',
   'models',
   'services',
@@ -24,19 +26,19 @@ const barrels: string[] = [
 
 const systemPackages: any = {};
 barrels.forEach((b) => {
-    systemPackages[b] = { main: 'index.js', defaultExtension: 'js'};
+    systemPackages[b] = { main: 'index', defaultExtension: 'js'};
 });
 
 systemPackages['rxjs'] = { main: '/bundles/rx.js', defaultExtension: 'js' };
 
 ngBarrels.forEach((b) => {
-    systemPackages['@angular/'+b] = { main: '/bundles/' + b + '.umd.js', defaultExtension: 'js' };
+    //systemPackages['@angular/'+b] = { main: '/bundles/' + b + '.umd.js', defaultExtension: 'js' };
+    systemPackages['@angular/'+b] = { main: 'index', defaultExtension: 'js' };
 });
 
 declare var System: any;
 
 System.config({
-    baseUrl: '/',
     map: {
         '@angular':                   'node_modules/@angular',
         '@angular/router':            'node_modules/@angular/router',
