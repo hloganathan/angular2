@@ -13,7 +13,3 @@ notifications:
         - nashvegastech:8YmJJoumbMc0qwu4ESM5qFjX#builds
     on_success: change
     on_failure: always
-branches:
-  only:
-    - master
-    - develop

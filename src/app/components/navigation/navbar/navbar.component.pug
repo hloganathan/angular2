@@ -1,0 +1,13 @@
+.navbar.navbar-inverse.navbar-fixed-top
+    .container
+        .navbar-header
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+                span.sr-only Toggle Navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a.navbar-brand([routerLink]="['welcome']") Heath Journal Angular 2
+        #navbar.collapse.navbar-collapse
+            hj-main-menu(*ngIf='user.isValid === true')
+            hj-login(*ngIf='user.isValid === false')
+            hj-user-dropdown(*ngIf='user.isValid === true')

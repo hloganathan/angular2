@@ -1,0 +1,20 @@
+.navbar.navbar-inverse.navbar-lower(role='navigation', data-spy='affix' data-offset-top='50', data-offset-bottom='100')
+    .container
+        .navbar-header
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#desktop-navbar', aria-expanded='false', aria-controls='navbar')
+                span.sr-only Toggle Navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+        #desktop-navbar.collapse.navbar-collapse
+            ul.nav.navbar-nav
+                li.active
+                    a([routerLink]="['dashboard']") Dashboard
+                li
+                    a([routerLink]="['journal']") Journal
+                li
+                    a([routerLink]="['appointments']") Appointments
+                li
+                    a([routerLink]="['physicians']") Physicians
+                li
+                    a([routerLink]="['prescriptions']") Prescriptions

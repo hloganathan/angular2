@@ -14,11 +14,24 @@ const barrels: string[] = [
   // Thirdparty barrels.
 
   // App specific barrels.
-  'app',
-  'app/components/login',
-  'app/components',
-  'app/models',
-  './root'
+  'components',
+  'components/login',
+  'components/navigation',
+  'components/navigation/main-menu',
+  'components/navigation/navbar',
+  'components/user-dropdown',
+  'desktop',
+  'desktop/appointments',
+  'desktop/dashboard',
+  'desktop/journal',
+  'desktop/navigation',
+  'desktop/physicians',
+  'desktop/prescriptions',
+  'models',
+  'root',
+  'routes',
+  'services',
+  'welcome'
 ];
 
 const systemPackages: any = {};
@@ -29,20 +42,19 @@ barrels.forEach((b) => {
 systemPackages['rxjs'] = { main: '/bundles/rx.js', defaultExtension: 'js' };
 
 ngBarrels.forEach((b) => {
-    systemPackages['@angular/'+b] = { main: '/bundles/' + b + '.umd.js', defaultExtension: 'js' };
+    //systemPackages['@angular/'+b] = { main: '/bundles/' + b + '.umd.js', defaultExtension: 'js' };
+    systemPackages['@angular/'+b] = { main: 'index', defaultExtension: 'js' };
 });
 
 declare var System: any;
 
 System.config({
-    baseUrl: '/',
     map: {
-        'app': '/',
         '@angular':                   'node_modules/@angular',
         '@angular/router':            'node_modules/@angular/router',
         'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
         'rxjs':                       'node_modules/rxjs',
-        'main': 'main.js'
+        'main': 'index.js'
     },
     packages: systemPackages
 });

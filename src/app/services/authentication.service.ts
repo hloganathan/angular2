@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 import { User } from '../models/user';
 
 @Injectable()
-export class Authentication {
+export class AuthenticationService {
     private _loggedOutUser = new User;
     private _userChangedSource = new Subject<User>();
     

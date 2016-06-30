@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/user';
-import { Authentication } from '../services/authentication';
+import { User } from '../../models';
+import { AuthenticationService } from '../../services';
 
 @Component({
     selector: 'hj-login',
-    templateUrl: './login/login.component.html',
-    styleUrls: ['./login/login.component.css']
+    moduleId: module.id,
+    templateUrl: 'login.component.html',
+    styleUrls: ['login.component.css']
 })
 
 export class LoginComponent implements OnInit {
-    username: string;
-    password: string;
+    public username: string;
+    public password: string;
+    public status: string;
     private _fullstring: string;
-    status: string;
     
-    constructor(private _authSrvc: Authentication){
+    constructor(private _authSrvc: AuthenticationService){
         
     }
 
