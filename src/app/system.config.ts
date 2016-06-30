@@ -14,15 +14,22 @@ const barrels: string[] = [
   // Thirdparty barrels.
 
   // App specific barrels.
-  'components/login',
-  'components/user-dropdown',
-  'components/navigation',
-  'components/navigation/navbar',
-  'components/navigation/main-menu',
   'components',
+  'components/login',
+  'components/navigation',
+  'components/navigation/main-menu',
+  'components/navigation/navbar',
+  'components/user-dropdown',
+  'desktop',
+  'desktop/appointments',
+  'desktop/dashboard',
+  'desktop/journal',
+  'desktop/physicians',
+  'desktop/prescriptions',
   'models',
+  'root',
+  'routes',
   'services',
-  'root'
 ];
 
 const systemPackages: any = {};
