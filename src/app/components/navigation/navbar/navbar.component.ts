@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Authentication } from '../../../services/authentication';
+import { ROUTER_DIRECTIVES } from '@angular/router';
+import { AuthenticationService } from '../../../services';
 import { User } from '../../../models';
 import { UserDropdownComponent, LoginComponent } from '../../../components';
 import { MainMenuComponent } from '../main-menu';
@@ -9,14 +10,14 @@ import { MainMenuComponent } from '../main-menu';
     moduleId: module.id,
     templateUrl: 'navbar.component.html',
     styleUrls: ['navbar.component.css'],
-    directives: [ MainMenuComponent, LoginComponent, UserDropdownComponent ]
+    directives: [ MainMenuComponent, LoginComponent, UserDropdownComponent, ROUTER_DIRECTIVES ]
 
 })
 export class NavbarComponent {
     public user: User = new User();
-    private _authSrvc: Authentication;
+    private _authSrvc: AuthenticationService;
 
-    constructor(authSrvc: Authentication) {
+    constructor(authSrvc: AuthenticationService) {
         this._authSrvc = authSrvc;
         this.user = this._authSrvc.currentUser;
         this._authSrvc.userChanged$.subscribe(u => this.user = u);

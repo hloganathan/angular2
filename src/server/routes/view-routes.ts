@@ -8,6 +8,9 @@ export class ViewRoutes implements RouteProvider {
         let index = (req: Express.Request, res: express.Response, next: express.NextFunction) => res.render('index');
 
         router.get('/', index.bind(index));
+        app.use((req: express.Request, res: express.Response) => {
+            res.status(200).render('index');
+        })
         app.use(router);
     }
 }

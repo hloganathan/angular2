@@ -24,12 +24,14 @@ const barrels: string[] = [
   'desktop/appointments',
   'desktop/dashboard',
   'desktop/journal',
+  'desktop/navigation',
   'desktop/physicians',
   'desktop/prescriptions',
   'models',
   'root',
   'routes',
   'services',
+  'welcome'
 ];
 
 const systemPackages: any = {};

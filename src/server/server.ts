@@ -36,6 +36,7 @@ export class Server {
         console.log(`Server Path = ${this.root}`);
         this.app.set('views', path.join(this.root, '/server/views'));
         this.app.use(express.static(path.join(this.root, '/app')));
+        this.app.use('/css', express.static(path.join(this.root, '/server/css')));
 
         this.app.use('/node_modules', express.static(path.join(this.root, '../node_modules')));
         this.app.set('view engine', 'pug');

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models';
-import { Authentication } from '../../services';
+import { AuthenticationService } from '../../services';
 
 @Component({
     selector: 'hj-login',
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
     public status: string;
     private _fullstring: string;
     
-    constructor(private _authSrvc: Authentication){
+    constructor(private _authSrvc: AuthenticationService){
         
     }
 

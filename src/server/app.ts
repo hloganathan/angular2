@@ -9,6 +9,6 @@ const viewRoutes = new ViewRoutes();
 
 server.port = 3000;
 server.root = './dist';
-server.AddRoutProvider(viewRoutes);
 server.AddRoutProvider(apiRoutes);
+server.AddRoutProvider(viewRoutes);
 server.Start();

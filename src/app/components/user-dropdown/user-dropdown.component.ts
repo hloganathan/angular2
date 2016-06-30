@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Authentication } from '../../services';
+import { AuthenticationService } from '../../services';
 import { User } from '../../models';
 
 @Component({
@@ -12,7 +12,7 @@ export class UserDropdownComponent{
     user: User;
     username: string;
     
-    constructor(private _auth: Authentication){
+    constructor(private _auth: AuthenticationService){
         this.user = _auth.currentUser;
         this._auth.userChanged$.subscribe(this.userLoggedin);
     }
