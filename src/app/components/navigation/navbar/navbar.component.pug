@@ -8,6 +8,6 @@
                 span.icon-bar
             a.navbar-brand([routerLink]="['welcome']") Heath Journal Angular 2
         #navbar.collapse.navbar-collapse
-            hj-main-menu
+            hj-main-menu(*ngIf='user.isValid === true')
             hj-login(*ngIf='user.isValid === false')
             hj-user-dropdown(*ngIf='user.isValid === true')
