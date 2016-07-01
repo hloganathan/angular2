@@ -1,4 +1,4 @@
-var gulp = require('gulp'),
+let gulp = require('gulp'),
     debug = require('gulp-debug'),
     sourcemaps = require('gulp-sourcemaps'),
     del = require('del'),
@@ -12,11 +12,11 @@ var gulp = require('gulp'),
 
 var gulpsync = require('gulp-sync')(gulp);    
 var reload = browserSync.reload;
-
 var appFolder = './dist/app';
 var serverFolder = './dist/server';
 
 gulp.task('run', ['browsersync'],  function() {
+
     gulp.watch('src/**/*.scss', [':app:scss', ':server:scss']);
     gulp.watch('src/**/*.pug', [':app:pug', ':server:pug']);
     
