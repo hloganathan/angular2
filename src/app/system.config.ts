@@ -5,7 +5,7 @@ const ngBarrels: string[] = [
   'http',
   'platform-browser',
   'platform-browser-dynamic',
-]
+];
 
 const barrels: string[] = [
   // Angular specific barrels.
@@ -42,7 +42,6 @@ barrels.forEach((b) => {
 systemPackages['rxjs'] = { main: '/bundles/rx.js', defaultExtension: 'js' };
 
 ngBarrels.forEach((b) => {
-    //systemPackages['@angular/'+b] = { main: '/bundles/' + b + '.umd.js', defaultExtension: 'js' };
     systemPackages['@angular/'+b] = { main: 'index', defaultExtension: 'js' };
 });
 

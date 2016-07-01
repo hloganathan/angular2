@@ -1,9 +1,9 @@
 export class User {
-    username: string = 'no one';
-    firstName: string ='';
-    lastName: string = '';
-    isValid: boolean = false;
-    role: string = 'none';
+    public username: string = 'no one';
+    public firstName: string = '';
+    public lastName: string = '';
+    public isValid: boolean = false;
+    public role: string = 'none';
     get fullname(): string {
         return `${this.firstName} ${this.lastName}`;
     }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     moduleId: module.id,
@@ -6,11 +6,6 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: 'appointments.component.html',
     styleUrls: [ 'appointments.component.css' ]
 })
-export class AppointmentsComponent implements OnInit {
+export class AppointmentsComponent {
     public title: string = 'this is the appointments component';
-    
-    constructor() { }
-
-    ngOnInit() { }
-
 }

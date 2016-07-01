@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 @Component({
     moduleId: module.id,
@@ -7,9 +7,5 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
     styleUrls: [ 'desktop-menu.component.css' ],
     directives: [ ROUTER_DIRECTIVES ]
 })
-export class DesktopMenuComponent implements OnInit {
-    constructor() { }
-
-    ngOnInit() { }
-
+export class DesktopMenuComponent {
 }

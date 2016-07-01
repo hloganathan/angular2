@@ -18,7 +18,7 @@ export class ApiRoutes implements RouteProvider {
                 const username: string = req.query.username;
                 const password: string = req.query.password;
 
-                const user = _.find(users, function (o: any) { return o.username == username && o.password == password });
+                const user = _.find(users, function (o: any) { return o.username == username && o.password == password; });
 
                 if (user === undefined) {
                     res.statusCode = 404;
