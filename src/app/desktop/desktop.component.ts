@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
 import { DesktopMenuComponent } from './navigation';
@@ -10,11 +10,6 @@ import { DesktopMenuComponent } from './navigation';
     styleUrls: [ 'desktop.component.css' ],
     directives: [ DesktopMenuComponent, ROUTER_DIRECTIVES ]
 })
-export class DesktopComponent implements OnInit {
+export class DesktopComponent {
     public title: string = 'this is the desktop';
-    
-    constructor() { }
-
-    ngOnInit() { }
-
 }

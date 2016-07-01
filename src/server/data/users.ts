@@ -1,5 +1,5 @@
 /* tslint:disable:quotemark */
-export const users = 
+export const users =
     [
         {"id": 1, "username": "dmartin",  "lastname": "Martin", "firstname": "David", "password": "dude"},
         {"id": 2, "username": "neckman",  "lastname": "Gregg", "firstname": "Scott", "password": "neckman"},

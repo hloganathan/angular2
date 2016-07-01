@@ -9,20 +9,19 @@ import { User } from '../../models';
     styleUrls: ['user-dropdown.component.css']
 })
 export class UserDropdownComponent{
-    user: User;
-    username: string;
-    
-    constructor(private _auth: AuthenticationService){
-        this.user = _auth.currentUser;
-        this._auth.userChanged$.subscribe(this.userLoggedin);
+    private authService_: AuthenticationService;
+
+    public user: User;
+    public username: string;
+
+    constructor(auth: AuthenticationService){
+        this.authService_ = auth;
+        this.user = this.authService_.currentUser;
+        this.authService_.userChanged$.subscribe(this.userLoggedin);
     }
 
-    //get username(): string {
-    //    return this._username.username;
-    //}
-
-    logoutUser(){
-        this._auth.logoutUser();
+    public logoutUser(){
+        this.authService_.logoutUser();
     }
 
     private userLoggedin(user: User){

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 
 import { NavbarComponent } from '../components/navigation/navbar';
@@ -13,13 +13,12 @@ import { User } from '../models';
     directives: [NavbarComponent, ROUTER_DIRECTIVES ]
 })
 
-export class RootComponent implements OnInit {
-
-    title: string = 'Angular 2 Data Entry - App';
-
+export class RootComponent {
     private router_ : Router;
     private auth_ : AuthenticationService;
     private sub: any;
+
+    public title: string = 'Angular 2 Data Entry - App';
 
     constructor(router: Router, auth: AuthenticationService){
         this.router_ = router;
@@ -27,14 +26,10 @@ export class RootComponent implements OnInit {
             console.log('*** Router is undefined ***');
         }
         else {
-            console.log('*** Router is defined ***')
+            console.log('*** Router is defined ***');
         }
         this.auth_ = auth;
         this.sub = this.auth_.userChanged$.subscribe((u) => this.onUserChanged(u));
-    }
-
-    ngOnInit(){
-
     }
 
     private onUserChanged(user: User){
