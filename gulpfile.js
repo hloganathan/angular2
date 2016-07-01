@@ -1,4 +1,4 @@
-let gulp = require('gulp'),
+var gulp = require('gulp'),
     debug = require('gulp-debug'),
     sourcemaps = require('gulp-sourcemaps'),
     del = require('del'),
