@@ -14,17 +14,12 @@ import { MainMenuComponent } from '../main-menu';
 
 })
 export class NavbarComponent {
+    private authSrvc_: AuthenticationService;
     public user: User = new User();
-    private _authSrvc: AuthenticationService;
 
     constructor(authSrvc: AuthenticationService) {
-        this._authSrvc = authSrvc;
-        this.user = this._authSrvc.currentUser;
-        this._authSrvc.userChanged$.subscribe(u => this.user = u);
+        this.authSrvc_ = authSrvc;
+        this.authSrvc_.userChanged$.subscribe(u => this.user = u);
+        this.user = this.authSrvc_.currentUser;
     }
-
-    logoutUser() {
-        this._authSrvc.logoutUser();
-    }
-
 }

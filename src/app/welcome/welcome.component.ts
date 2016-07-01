@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     moduleId: module.id,
@@ -6,10 +6,6 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: 'welcome.component.html',
     styleUrls: [ 'welcome.component.css' ]
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent {
     public title: string = 'this is the welcome screen';
-    constructor() { }
-
-    ngOnInit() { }
-
 }

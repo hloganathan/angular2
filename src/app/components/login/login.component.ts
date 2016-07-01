@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models';
 import { AuthenticationService } from '../../services';
 
 @Component({
@@ -10,20 +9,21 @@ import { AuthenticationService } from '../../services';
 })
 
 export class LoginComponent implements OnInit {
+    private authService_: AuthenticationService;
+
     public username: string;
     public password: string;
     public status: string;
-    private _fullstring: string;
-    
-    constructor(private _authSrvc: AuthenticationService){
-        
+
+    constructor(authSrvc: AuthenticationService){
+        this.authService_ = authSrvc;
     }
 
-    tryLogin(){
-        this._authSrvc.tryLogin(this.username, this.password);
+    public tryLogin(){
+        this.authService_.tryLogin(this.username, this.password);
     }
-    
-    ngOnInit(): any{
+
+    public ngOnInit(): any{
         this.status = 'not logged in';
     }
 }

@@ -3,7 +3,6 @@
 import * as express from 'express';
 import * as path from 'path';
 import * as bodyParser from 'body-parser';
-import * as _ from 'lodash';
 
 import { RouteProvider } from './route-provider';
 
@@ -25,7 +24,7 @@ export class Server {
         this.app.set('port', this.port);
         this.app.listen(this.port, function(){
             console.log('listening . . . ');
-        })
+        });
     }
 
     public AddRoutProvider(provider: RouteProvider){
@@ -42,32 +41,6 @@ export class Server {
         this.app.set('view engine', 'pug');
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: true }));
-    }
-
-    private onError(err: any) {
-        if (err.syscall !== 'listen') throw err;
-
-        var bind = typeof this.port === `string` ?
-            `Pipe ${this.port}`
-            : `Port ${this.port}`;
-
-        switch (err.code) {
-            case 'EACCES':
-                console.error(bind + ' requires elevated privileges');
-                process.exit(1);
-                break;
-            case 'EADDRINUSE':
-                console.error(bind + ' is already in use');
-                process.exit(1);
-                break;
-            default:
-                throw err;
-        }
-    }
-
-    private onListening() {
-        //var addr = httpServer.address();
-        //var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr;
     }
 
     private normalizePort(p) {
