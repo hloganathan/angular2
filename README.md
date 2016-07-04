@@ -59,7 +59,7 @@ Listed in no particular order...
 * .gitignore
     + This file includes a list of files and folders which git should not track.
 * package.json
-    + This file describes various aspectes of the "solution" contained withing this folder.
+    + This file describes various aspects of the "solution" contained withing this folder.
     + The "scripts" section declares the various scripts that can be run within the context of this "solution".
         > Each script specification consists of a script command, followed by a script body.
         > 'npm run <script_command>' will run whatever script body has been specified
