@@ -6,7 +6,7 @@
 [![Join the chat at https://gitter.im/dfmartin/angular2](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dfmartin/angular2?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![License](http://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/iron/iron/master/LICENSE)
 
-> Latest: Angular 2.0.0-rc.3  (6/21/2016)
+> Latest: Angular 2.0.0-rc.4  (6/30/2016)
 
 >  Check out the docs folder for an in-depth look at the structure of the app and what each piece does.
 
