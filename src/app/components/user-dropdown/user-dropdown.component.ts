@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from '../../services';
-import { User } from '../../models';
+import { IUser } from '../../../shared/models';
 
 @Component({
     selector:'hj-user-dropdown',
@@ -11,7 +11,7 @@ import { User } from '../../models';
 export class UserDropdownComponent{
     private authService_: AuthenticationService;
 
-    public user: User;
+    public user: IUser;
     public username: string;
 
     constructor(auth: AuthenticationService){
@@ -24,7 +24,7 @@ export class UserDropdownComponent{
         this.authService_.logoutUser();
     }
 
-    private userLoggedin(user: User){
+    private userLoggedin(user: IUser){
         this.user = user;
     }
 }

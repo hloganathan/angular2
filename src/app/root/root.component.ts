@@ -3,7 +3,7 @@ import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 
 import { NavbarComponent } from '../components/navigation/navbar';
 import { AuthenticationService } from '../services';
-import { User } from '../models';
+import { IUser } from '../../shared/models';
 
 @Component({
     selector: 'hj-root',
@@ -32,7 +32,7 @@ export class RootComponent {
         this.sub = this.auth_.userChanged$.subscribe((u) => this.onUserChanged(u));
     }
 
-    private onUserChanged(user: User){
+    private onUserChanged(user: IUser){
         if(user.isValid){
             this.router_.navigate(['/desktop/dashboard']);
         }

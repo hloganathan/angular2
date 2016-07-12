@@ -3,6 +3,7 @@
 import * as express from 'express';
 import * as path from 'path';
 import * as bodyParser from 'body-parser';
+import * as mongoose from 'mongoose';
 
 import { RouteProvider } from './route-provider';
 
@@ -21,6 +22,7 @@ export class Server {
     public Start(){
         this.routes_.forEach((p) => p.Configure(this.app));
 
+        mongoose.connect('mongodb://localhost:27017/healthjournal');
         this.app.set('port', this.port);
         this.app.listen(this.port, function(){
             console.log('listening . . . ');

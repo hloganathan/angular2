@@ -5,3 +5,4 @@ typings/
 .idea/
 dist/
 npm-debug.log
+rethinkdb_data/

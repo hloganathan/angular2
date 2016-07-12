@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { AuthenticationService } from '../../../services';
-import { User } from '../../../models';
+import { IUser, User } from '../../../../shared/models';
 import { UserDropdownComponent, LoginComponent } from '../../../components';
 import { MainMenuComponent } from '../main-menu';
 
@@ -15,7 +15,7 @@ import { MainMenuComponent } from '../main-menu';
 })
 export class NavbarComponent {
     private authSrvc_: AuthenticationService;
-    public user: User = new User();
+    public user: IUser = new User();
 
     constructor(authSrvc: AuthenticationService) {
         this.authSrvc_ = authSrvc;

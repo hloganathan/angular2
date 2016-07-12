@@ -27,11 +27,11 @@ const barrels: string[] = [
   'desktop/navigation',
   'desktop/physicians',
   'desktop/prescriptions',
-  'models',
   'root',
   'routes',
   'services',
-  'welcome'
+  'welcome',
+  '../shared/models'
 ];
 
 const systemPackages: any = {};

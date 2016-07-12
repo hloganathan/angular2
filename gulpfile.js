@@ -7,6 +7,7 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     nodemon = require('gulp-nodemon'),
     plumber = require('gulp-plumber'),
+    path = require('path'),
     ts = require('gulp-typescript'),
     tslint = require('gulp-tslint');
 
@@ -62,7 +63,7 @@ gulp.task('watch', function() {
 /***********
 BUILD TASKS
 ************/
-gulp.task('build', gulpsync.sync(['clean', ':server:build', ':app:build', ':app:bootstrap','jquery']));
+gulp.task('build', gulpsync.sync(['clean',':shared:copy-to-server', ':server:build', ':app:build', ':app:bootstrap','jquery']));
 
 gulp.task('clean', function() {
     del.sync('./dist');
@@ -91,6 +92,29 @@ gulp.task(':app:ts-lint', function() {
         .pipe(tslint.report('prose'));
 });
 
+/**
+ * Shared Tasks
+ */
+gulp.task(':shared:typescript', [':shared:ts-lint'], function() {
+    var tsProject = ts.createProject('./tsconfig.shared.json');
+    return tsProject.src('./src/shared')
+        .pipe(ts(tsProject))
+        .js.pipe(gulp.dest('./dist/app/shared'))
+        .pipe(reload({ stream: true }));
+});
+
+gulp.task(':shared:copy-to-server', [':shared:typescript'], function(){
+    return gulp.src('./dist/app/shared/**/*.*')
+        .pipe(gulp.dest('./dist/shared'));
+});
+
+gulp.task(':shared:ts-lint', function() {
+    return gulp.src('./src/shared/**/*.ts')
+        .pipe(tslint())
+        .pipe(tslint.report('prose'));
+});
+
+
 /***********
 APP TASKS
 ************/
@@ -99,7 +123,7 @@ gulp.task(':app:typescript', [':app:copyfiles'], function() {
     var tsProject = ts.createProject('./tsconfig.app.json');
     return tsProject.src()
         .pipe(ts(tsProject))
-        .js.pipe(gulp.dest(appFolder))
+        .js.pipe(gulp.dest('./dist'))
         .pipe(reload({ stream: true }));
 });
 
@@ -150,11 +174,22 @@ SERVER TASKS
 gulp.task(':server:build',[':server:typescript', ':server:pug', ':server:scss']);
 
 gulp.task(':server:typescript', [':server:ts-lint'], function() {
+    //var tsResult = gulp.src('./src/server/**/*.ts')
+    //    .pipe(sourcemaps.init())
+    //    .pipe(ts({
+    //        out: 'app.js'
+    //    }))
+    //    .pipe(sourcemaps.write())
+    //    .pipe(gulp.dest('./dist/server'));
+
+
     var tsProject = ts.createProject('./tsconfig.server.json');
     return tsProject.src()
+        .pipe(sourcemaps.init())
         .pipe(ts(tsProject))
-        .js.pipe(gulp.dest(serverFolder))
-        .pipe(reload({ stream: true }));
+        .js
+        .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '../src/server'}))
+        .pipe(gulp.dest('./dist'));
 });
 
 gulp.task(':server:scss', function() {

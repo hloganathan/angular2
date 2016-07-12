@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
-import { User } from '../models/user';
+import { IUser, User } from '../../shared/models/user';
 
 @Injectable()
 export class AuthenticationService {
-    private userChangedSource_ = new Subject<User>();
+    private userChangedSource_ = new Subject<IUser>();
     private http_: Http;
 
-    public currentUser: User;
+    public currentUser: IUser;
     public userChanged$ = this.userChangedSource_.asObservable();
 
     constructor(http: Http){
@@ -51,8 +51,8 @@ export class AuthenticationService {
 
         if (data) {
             user.username = data.username;
-            user.firstName = data.firstname;
-            user.lastName = data.lastname;
+            user.firstName = data.firstName;
+            user.lastName = data.lastName;
             user.isValid = true;
         }
         else{
@@ -62,7 +62,7 @@ export class AuthenticationService {
         this.changeUser_(user);
     }
 
-    private changeUser_(user: User){
+    private changeUser_(user: IUser){
         this.currentUser = user;
         this.userChangedSource_.next(user);
     }
